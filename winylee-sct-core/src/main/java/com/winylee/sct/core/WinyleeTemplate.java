@@ -11,7 +11,7 @@ public class WinyleeTemplate {
 
 
     public static void main(String[] args) throws Exception {
-        String path = "C:\\Users\\shang.li\\Desktop\\PDM\\work\\2.pdm";
+        String path = "C:\\Users\\shang.li\\Desktop\\分销购买记录导入\\db\\分销购买记录导.pdm";
         //通过PDM生成
         //CodeTemplateConstant.PMD_PATH
         generateByPdm(path);

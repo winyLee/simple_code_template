@@ -20,7 +20,6 @@ import ${domain}.model.${moduleName}.${className};
 *  @author   ${authorName} ${createTimeStr}
 */
 @Service
-@Transactional
 public class ${className}ServiceImpl  implements ${className}Service{
 
     @Autowired
@@ -34,12 +33,15 @@ public class ${className}ServiceImpl  implements ${className}Service{
 
     @Override
     public ${className}DTO get(Long id) {
-        if(id ==null) throw new EcovacsValidateException("id 不能为空");
+        if(id == null){
+            throw new EcovacsValidateException("id 不能为空");
+        }
         ${className}  entity = dao.findOne(id);
         return entity==null?null:entity.toDTO();
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void save(${className}DTO dto) {
         ${className}  entity = new ${className}();
         entity.fromDTO(dto);
@@ -47,16 +49,22 @@ public class ${className}ServiceImpl  implements ${className}Service{
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void edit(${className}DTO dto) {
         ${className} entity = dao.findOne(dto.getId());
-        if(entity==null)throw new EcovacsValidateException("修改失败，该信息已被删除");
+        if(entity == null){
+            throw new EcovacsValidateException("修改失败，该信息已被删除");
+        }
         entity.fromDTO(dto);
         dao.save(entity);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void delete(Long id) {
-        if(id ==null) throw new EcovacsValidateException("id 不能为空");
+        if(id == null){
+            throw new EcovacsValidateException("id 不能为空");
+        }
         dao.delete(id);
     }
 

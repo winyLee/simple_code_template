@@ -17,7 +17,7 @@ public interface ${className}Service {
     * @param dto
     * @return
     */
-    Page< ${className}DTO> findPage(Pageable pageable, ${className}DTO dto);
+    Page<${className}DTO> findPage(Pageable pageable, ${className}DTO dto);
 
 
     /**

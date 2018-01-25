@@ -46,6 +46,7 @@ public class PdmUtil {
             while (itr1.hasNext()) {
                 Element e_col = (Element) itr1.next();
                 String columnCode = e_col.elementTextTrim("Code").toLowerCase();
+                System.out.println(columnCode);
                 if(CodeTemplateConstant.excludeXmlFieldSet.contains(columnCode)){
                     continue;
                 }

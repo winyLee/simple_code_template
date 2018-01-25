@@ -1,7 +1,7 @@
 package ${nameSpace};
 
 /**
- * 实体�?${classDes}
+ * 实体�? ${classDes}
  * generate by winylee CodeTemplate
  *  @author   ${authorName} ${createTimeStr}
  */
